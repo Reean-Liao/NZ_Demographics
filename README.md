@@ -7,12 +7,8 @@ Date: June 2019
 ## Table of Contents
 
 * [Population from Wikipedia](#Population-from-Wikipedia)
-* [Income from StatsNZ](#Income-from-StatsNZ)
-<br/>
-<br/>	  
-* [Reference](#Reference)
-<br/>
-<br/>    
+* [Income from StatsNZ](#Income-from-StatsNZ)  
+* [Reference](#Reference) 
 * [Appendix](#Appendix)
 
 
@@ -32,16 +28,14 @@ plt.style.use('ggplot')
 ```
 
 ## Introduction
-[Back to top](#Retrieving-NZ-Demographics-Information)
 
-Retrieving New Zealand's demographic/census data is a tricky task. In general, StatsNZ is the central source of all census related data, but there's no easy way of querying it. Until a better API$^{①}$ comes along, the best way to obtain such information is to search for it in StatsNZ's website (https://www.stats.govt.nz/) and download what you need as CSV.
+Retrieving New Zealand's demographic/census data is a tricky task. In general, StatsNZ is the central source of all census related data, but there's no easy way of querying it. Until a better API① comes along, the best way to obtain such information is to search for it in StatsNZ's website (https://www.stats.govt.nz/) and download what you need as CSV.
 
 This document shows examples of an alternative solution - obtaining NZ demographics information from web scraping.
 
 ①:_StatsNZ had an API initiative in 2017 to 2018; the Appendix shows how it would have worked, but this API is no longer available._
 
 ## Population from Wikipedia
-[Back to top](#Retrieving-NZ-Demographics-Information)
 
 Suppose you manage to find the population by regions information from a Wikipedia web page (Regions of New Zealand, n.d.). You can retrieve the information using the method below. Note that the snapshot data here is a June 2018 provisional estimate given by StatsNZ.
 
@@ -602,7 +596,6 @@ df_pop.info()
 Finally, the population table is ready to be used.
 
 ## Income from StatsNZ
-[Back to top](#Retrieving-NZ-Demographics-Information)
 
 StatsNZ offers a comprehensive collection of interactive tables spanning across a wide range of topics. One can locate a theme (e.g. income) and find a base table easily that contains the information required. Once you find an optimal base table, you can customise the layout and export the table as CSV.
 
@@ -1324,7 +1317,6 @@ df_income.info()
 Both columns are stored as integer. This table can be used as is, or further preped for other purposes.
 
 ## Reference
-[Back to top](#Retrieving-NZ-Demographics-Information)
 
 Regions of New Zealand. (n.d). In _Wikipedia_. Retrieved June 14, 2019 from https://en.wikipedia.org/wiki/Regions_of_New_Zealand. 
 
@@ -1333,11 +1325,9 @@ StatsNZ API. (n.d.). _TABLECODE8135_. Retrieved June 10, 2017, from https://stat
 StatsNZ. (n.d.). _TABLECODE7480_. Retrieved June 14, 2019, from http://nzdotstat.stats.govt.nz/wbos/Index.aspx?DataSetCode=TABLECODE7480#
 
 ## Appendix
-[Back to top](#Retrieving-NZ-Demographics-Information)
 
 In 2017 to 2018, some demographics data can be obtained from the API provided by StatsNZ (StatsNZ API, n.d.). This was a temporal experiment, with limited documentations. In the initial exploration stage, it was discovered that a lot of the features provided by the API were not fully functional. Therefore, those features have not been applied here for this exercise. And if you run the below code from Dec 2018 onward, it will fail. But below is how it would have worked.
-<br/>
-<br/>
+
 
 By querying the catalogue on the API's web interface, we can locate a target endpoint table - TABLECODE8135. This table is for "Total household income (grouped) by household composition, for households in occupied private dwellings, 2006 and 2013 Censuses (RC, TA, AU)".
 
@@ -1359,8 +1349,7 @@ __Request parameters:__
 
 __Request headers:__
 * `Ocp-Apim-Subscription-Key`
-<br>
-<br>
+
 
 Here, all the records in income table will be queried with the below URL and subscription Key; filters will be applied afterwards.
 
